@@ -14,14 +14,17 @@ export default createStore({
         incrementBy(state, val){
             state.count += val
             state.lastMutation = 'incrementBy'
+        }, 
+        setLoading(state, val){
+            state.isLoading = val
         }
     },
     actions:{
-        async incrementRandomInt(contex){
-
+        async incrementRandomInt({commit}){
+            commit('setLoading', true)
             const randomInt =  await getRandomInt()
-            contex.commit('incrementBy', randomInt)
-
+            commit('incrementBy', randomInt)
+            commit('setLoading', false)
         }
     }
 })
