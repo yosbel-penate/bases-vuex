@@ -7,6 +7,7 @@
         <button @click = "incrementBy" >+5</button>
         <button @click="randomInt" :disabled="isLoading">Random</button>
         <h2>mapState: {{ count }}</h2>
+        <h2>Direct getter: {{ $store.getters.squareCount }}</h2>
     </div>
 </template>
 
